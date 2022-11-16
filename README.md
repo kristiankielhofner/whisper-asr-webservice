@@ -3,20 +3,20 @@
 Whisper is a general-purpose speech recognition model. It is trained on a large dataset of diverse audio and is also a multi-task model that can perform multilingual speech recognition as well as speech translation and language identification. For more details: [github.com/openai/whisper](https://github.com/openai/whisper/)
 
 ## Run (Docker Hub)
-Whisper ASR Webservice now available on Docker Hub. You can find the latest version of this repository on docker hub for CPU and GPU.
+Whisper ASR Webservice now available on Docker Hub. You can find the latest version of this repository on docker hub for GPU.
 
-Docker Hub: https://hub.docker.com/r/onerahmet/openai-whisper-asr-webservice
+This build includes CUDA 11.7 and pytorch 1.13 to support newer CUDA architectures. Tested on RTX 3090.
 
-For CPU:
-```sh
-docker run -d -p 9000:9000 -e ASR_MODEL=base onerahmet/openai-whisper-asr-webservice:latest
-```
+Docker Hub: https://hub.docker.com/r/krisk84/whisper-asr-webservice
 
 For GPU:
-```sh
-docker run -d --gpus all -p 9000:9000 -e ASR_MODEL=base onerahmet/openai-whisper-asr-webservice:latest-gpu
-```
-```sh
+
+```docker run -d --gpus all -p 9000:9000 -e ASR_MODEL=base krisk84/whisper-asr-webservice:pytorch-1.13```
+
+For GPU with docker compose:
+
+```docker compose up```
+
 # Interactive Swagger API documentation is available at http://localhost:9000/docs
 ```
 Available ASR_MODELs are `tiny`, `base`, `small`, `medium` and `large`
