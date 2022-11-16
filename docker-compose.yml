@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  whisper-asr-webservice-gpu:
+    image: whisper-asr-webservice-gpu:pytorch-1.13
+    volumes:
+      - ./cache:/root/.cache/whisper
+    ports:
+      - '127.0.0.1:9000:9000'
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
+    environment:
+      - ASR_MODEL=base
