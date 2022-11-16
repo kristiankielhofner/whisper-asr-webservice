@@ -2,7 +2,7 @@ version: '3'
 
 services:
   whisper-asr-webservice-gpu:
-    image: whisper-asr-webservice-gpu:pytorch-1.13
+    image: krisk84/whisper-asr-webservice:pytorch-1.13
     volumes:
       - ./cache:/root/.cache/whisper
     ports:
