@@ -13,4 +13,4 @@ services:
           devices:
             - capabilities: [ gpu ]
     environment:
-      - ASR_MODEL=base
+      ASR_MODEL: base
